@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="win.kymco.bluetooth">
+
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADVERTISE" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!--建立藍牙連接和傳輸權限-->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <!--掃描藍牙設備或修改藍牙設置權限-->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!--Android 6.0及後續版本掃描藍牙,需要定位權限(進入GPS設置,可以看到藍牙定位)-->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- required = true 表示手機必須支持BLE，否則無法安裝運行-->
+    <uses-feature
+        android:name="android.hardware.bluetooth_le"
+        android:required="false" />
+
+    <application
+        android:name="win.kymco.bluetooth.APP"
+        android:allowBackup="false"
+        android:fullBackupContent="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+        tools:ignore="GoogleAppIndexingWarning"
+
+        >
+
+        <activity android:name="win.kymco.bluetooth.MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+
+        <activity
+            android:name="win.kymco.bluetooth.ble.BleClientActivity"
+            android:label="@string/ble_client"
+            />
+
+    </application>
+</manifest>

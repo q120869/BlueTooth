@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">kymco ble</string>
+    <string name="bt_client">BT客戶端</string>
+    <string name="bt_server">BT服務端</string>
+    <string name="ble_client">Start</string>
+    <string name="ble_server">BLE服務端(從機/外圍設備/peripheral)</string>
+    <string name="bt">經典藍牙(BT)</string>
+    <string name="ble">低功耗藍牙(BLE)</string>
+    <string name="reScan">重新掃描</string>
+    <string name="read">讀取</string>
+    <string name="setNotify">設置通知</string>
+    <string name="max_byte">最多20字節</string>
+    <string name="write">寫入</string>
+</resources>

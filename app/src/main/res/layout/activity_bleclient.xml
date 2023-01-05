@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="2dp"
+    tools:context="win.kymco.bluetooth.ble.BleClientActivity">
+
+    <Button
+        android:id="@+id/btn_scan"
+        android:layout_width="226dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/button"
+        android:onClick="reScan"
+        android:text="@string/reScan"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_ble"
+        android:layout_width="269dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/stroke"
+        android:padding="4dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_scan" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/stroke"
+        android:padding="2dp"
+        android:scrollbars="none"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_write">
+
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="390dp"
+        android:layout_height="546dp"
+        android:layout_marginTop="4dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_ble">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="按鈕"
+                android:textSize="18sp"></TextView>
+
+            <Button
+                android:id="@+id/btn_read_button_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#46A3FF"
+                android:onClick="readButtonValue"
+                android:text="讀取"
+                android:textColor="#ffffff"
+                android:textStyle="bold"></Button>
+
+            <Button
+                android:id="@+id/btn_notify_button_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#BAE1A4"
+                android:onClick="setButtonNotify"
+                android:text="設定通知"
+                android:textColor="#ffffff"
+                android:textStyle="bold"></Button>
+
+            <TextView
+                android:id="@+id/tv_button_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="Release"
+                android:textSize="18sp"></TextView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="充電"
+                android:textSize="18sp"></TextView>
+
+            <Button
+                android:id="@+id/btn_read_battery_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#97CBFF"
+                android:onClick="readBatteryValue"
+                android:text="讀取"
+                android:textColor="#ffffff"
+                android:textStyle="bold"></Button>
+
+            <Button
+                android:id="@+id/btn_notify_battery_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="#AACD97"
+                android:onClick="setBatteryNotify"
+                android:text="設定通知"
+                android:textColor="#ffffff"
+                android:textStyle="bold"></Button>
+
+            <TextView
+                android:id="@+id/tv_battery_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="0"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textSize="18sp"
+                tools:text="60" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="43dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight=".01"
+                android:text="LED"
+                android:textSize="18sp" />
+
+            <android.widget.Switch
+                android:id="@+id/sw"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                android:layout_weight=".40" />
+
+            <TextView
+                android:id="@+id/txtResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:text="LED is OFF"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="可變\n電阻"
+                android:textSize="18sp"></TextView>
+
+            <Button
+                android:id="@+id/btn_read_vr_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#D2E9FF"
+                android:onClick="readVRValue"
+                android:padding="10dp"
+                android:text="讀取"
+                android:textColor="#ffffff"
+                android:textStyle="bold"></Button>
+
+            <Button
+                android:id="@+id/btn_notify_vr_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:background="#A1738A67"
+                android:onClick="setVRNotify"
+                android:padding="10dp"
+                android:text="設定通知"
+                android:textColor="#ffffff"
+                android:textStyle="bold"></Button>
+
+            <TextView
+                android:id="@+id/tv_vr_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:text="0"
+                android:textSize="18sp"></TextView>
+        </LinearLayout>
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart1"
+            android:layout_width="373dp"
+            android:layout_height="249dp"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@drawable/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="181dp"
+        android:layout_height="49dp"
+        android:src="@drawable/nav_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.941" />
+</android.support.constraint.ConstraintLayout>
